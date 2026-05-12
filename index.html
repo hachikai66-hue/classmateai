@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>道徳クラスメートAI - 設定画面</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div id="setup-screen" class="screen active">
+        <div class="setup-container glass-panel">
+            <h1><i class="fa-solid fa-seedling"></i> 道徳クラスメートAI</h1>
+            <p class="subtitle">授業の「深まり」と「広がり」をサポートするAI</p>
+            
+            <div class="setup-avatar-preview">
+                <img src="neutral_mid.png" id="setup-avatar-img" alt="アバタープレビュー">
+                <p class="avatar-label">プレビュー</p>
+            </div>
+
+            <div class="form-group">
+                <label>Gemini API キー (必須)</label>
+                <input type="password" id="api-key" placeholder="AIの推論に使用します">
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>教材名</label>
+                    <input type="text" id="lesson-name" placeholder="例: ブランコ乗りとピエロ">
+                </div>
+                <div class="form-group">
+                    <label>内容項目（道徳的価値）</label>
+                    <input type="text" id="moral-value" placeholder="例: 寛容、謙虚な心">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>学年設定</label>
+                    <select id="grade-level">
+                        <option value="低学年">低学年</option>
+                        <option value="中学年">中学年</option>
+                        <option value="高学年" selected>高学年</option>
+                        <option value="中学生">中学生</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>キャラクター性別</label>
+                    <select id="gender">
+                        <option value="男子" selected>男子</option>
+                        <option value="女子">女子</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>音声ピッチ（高さ） <span id="pitch-val">1.0</span></label>
+                    <input type="range" id="voice-pitch" min="0" max="2" step="0.1" value="1">
+                </div>
+                <div class="form-group">
+                    <label>発話スピード <span id="speed-val">1.0</span></label>
+                    <input type="range" id="voice-speed" min="0.5" max="2" step="0.1" value="1">
+                </div>
+            </div>
+            
+            <div class="form-row" style="justify-content: flex-end;">
+                <button id="test-voice-btn" class="secondary-btn"><i class="fa-solid fa-volume-high"></i> 音声をテスト</button>
+            </div>
+
+            <button id="start-btn" class="primary-btn">授業を開始する <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+    </div>
+
+    <script src="setup.js"></script>
+</body>
+</html>
