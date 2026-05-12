@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>道徳クラスメートAI - 授業画面</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div id="main-screen" class="screen active">
+        <header class="app-header">
+            <div class="logo">道徳クラスメートAI</div>
+            <div class="status-indicator">
+                <div class="recording-dot"></div>
+                <span id="listening-status">教室の音声をモニタリング中...</span>
+            </div>
+            <button id="settings-btn" class="icon-btn" title="設定に戻る"><i class="fa-solid fa-cog"></i></button>
+        </header>
+
+        <div class="dashboard">
+            <!-- 左カラム：トランスクリプト（議論の流れ） -->
+            <div class="panel transcript-panel glass-panel">
+                <h2><i class="fa-solid fa-ear-listen"></i> クラスの議論（リアルタイム）</h2>
+                <div id="transcript-box" class="scroll-box">
+                    <div class="placeholder-text">音声を認識しています...</div>
+                </div>
+            </div>
+
+            <!-- 中央カラム：アバターとステータス -->
+            <div class="panel center-panel">
+                <div class="avatar-container">
+                    <div class="avatar-ring"></div>
+                    <img src="" alt="AIクラスメート" id="avatar-img">
+                    <div class="ai-status" id="ai-status-badge">思考中...</div>
+                </div>
+                <div class="context-summary glass-panel">
+                    <h3>現在のクラスの雰囲気</h3>
+                    <p id="atmosphere-text">データ収集中...</p>
+                </div>
+
+                <!-- 子どもたちの質問セクション -->
+                <div class="student-question-panel glass-panel">
+                    <h3><i class="fa-solid fa-comments"></i> AIに聞いてみよう</h3>
+                    <div class="question-input-wrapper">
+                        <input type="text" id="question-input" placeholder="AIにききたいことを入力してね...">
+                        <button id="voice-question-btn" class="voice-input-btn" title="声で質問する">
+                            <i class="fa-solid fa-microphone"></i>
+                        </button>
+                        <button id="send-question-btn" class="send-btn">
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </div>
+                    <div id="voice-feedback" class="voice-feedback">はなしてください...</div>
+                </div>
+            </div>
+
+            <!-- 右カラム：操作パネル（思考支援機能） -->
+            <div class="panel control-panel glass-panel">
+                <h2><i class="fa-solid fa-wand-magic-sparkles"></i> 思考支援アクション</h2>
+                <p class="help-text">状況に合わせてAIに発言させたい方向性を選択します。</p>
+                
+                <div class="action-buttons">
+                    <button class="action-btn style-perspective" data-type="perspective">
+                        <i class="fa-regular fa-lightbulb"></i>
+                        <span>新しい・別の視点を示す</span>
+                        <small>考えの多面化・多角化を促進する</small>
+                    </button>
+                    <button class="action-btn style-challenge" data-type="challenge">
+                        <i class="fa-solid fa-bolt"></i>
+                        <span>考えをゆさぶる</span>
+                        <small>AIに異なる立場の意見を示させる</small>
+                    </button>
+                </div>
+
+                <div class="preview-section">
+                    <h3><i class="fa-regular fa-comment-dots"></i> 発話プレビュー</h3>
+                    <div id="preview-box" class="preview-box">
+                        ボタンを押すと、ここにAIの発言候補が表示されます。
+                    </div>
+                    
+                    <div class="playback-controls">
+                        <button id="play-btn" class="control-btn play" disabled>
+                            <i class="fa-solid fa-play"></i> 発話させる
+                        </button>
+                        <button id="stop-btn" class="control-btn stop" disabled>
+                            <i class="fa-solid fa-stop"></i> 停止
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 通知トースト -->
+    <div id="toast" class="toast">準備が完了しました</div>
+
+    <script src="class.js"></script>
+</body>
+</html>
